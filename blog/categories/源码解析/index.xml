@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>源码解析 on 乱世浮生</title><link>https://atbug.com/categories/%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/</link><description>Recent content in 源码解析 on 乱世浮生</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Wed, 11 Jan 2023 18:12:58 +0800</lastBuildDate><atom:link href="https://atbug.com/categories/%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/index.xml" rel="self" type="application/rss+xml"/><item><title>Kubernetes 网络学习之 Cilium 与 eBPF</title><link>https://atbug.com/learn-cilium-and-ebpf/</link><pubDate>Wed, 11 Jan 2023 18:12:58 +0800</pubDate><guid>https://atbug.com/learn-cilium-and-ebpf/</guid><description>这是 Kubernetes 网络学习的第五篇笔记，也是之前计划中的最后一篇。 深入探索 Kubernetes 网络模型和网络通</description></item><item><title>源码解析：从 kubelet、容器运行时看 CNI 的使用</title><link>https://atbug.com/how-kubelete-container-runtime-work-with-cni/</link><pubDate>Thu, 08 Dec 2022 22:32:25 +0800</pubDate><guid>https://atbug.com/how-kubelete-container-runtime-work-with-cni/</guid><description>这是 Kubernetes 网络学习的第三篇笔记。 深入探索 Kubernetes 网络模型和网络通信 认识一下容器网络接口 CNI 源</description></item><item><title>源码解析 kubectl port-forward 工作原理</title><link>https://atbug.com/how-kubectl-port-forward-works/</link><pubDate>Tue, 09 Aug 2022 07:10:28 +0800</pubDate><guid>https://atbug.com/how-kubectl-port-forward-works/</guid><description>本文的源码基于 Kubernetes v1.24.0，容器运行时使用 Containerd 1.5，从源码来分析 kubectl port-forward 的工作原</description></item><item><title>可编程网关 Pipy 第三弹：事件模型设计</title><link>https://atbug.com/pipy-event-handling-design/</link><pubDate>Sun, 27 Jun 2021 09:38:18 +0800</pubDate><guid>https://atbug.com/pipy-event-handling-design/</guid><description>自从参加了 Flomesh 的 workshop，了解了可编程网关 Pipy。对这个“小东西”充满了</description></item><item><title>源码解析：一文读懂 Kubelet</title><link>https://atbug.com/kubelet-source-code-analysis/</link><pubDate>Tue, 15 Jun 2021 08:25:25 +0800</pubDate><guid>https://atbug.com/kubelet-source-code-analysis/</guid><description>本文主要介绍 kubelet 功能、核心组件，以及启动流程的源码分析，总结了 kubelet 的工作原理。 kubelet 简介</description></item><item><title>Kubernetes 上如何控制容器的启动顺序？</title><link>https://atbug.com/k8s-1.18-container-start-sequence-control/</link><pubDate>Fri, 30 Apr 2021 07:43:54 +0800</pubDate><guid>https://atbug.com/k8s-1.18-container-start-sequence-control/</guid><description>去年写过一篇博客：控制 Pod 内容器的启动顺序，分析了 TektonCD 的容器启动控制的原理。 为什么要</description></item><item><title>使用 cLion 阅读 envoy 源码</title><link>https://atbug.com/read-envoy-source-code-in-clion/</link><pubDate>Tue, 08 Dec 2020 20:53:39 +0800</pubDate><guid>https://atbug.com/read-envoy-source-code-in-clion/</guid><description>虽然不写 C++，但是看点代码还是能看懂。Envoy 的功能配置复杂，有时候处理问题</description></item><item><title>Spring Boot源码分析 - Configuration注解</title><link>https://atbug.com/spring-boot-configuration-annotation/</link><pubDate>Mon, 10 Dec 2018 16:24:33 +0000</pubDate><guid>https://atbug.com/spring-boot-configuration-annotation/</guid><description>@Configuration注解 @Configuration注解指示一个类声明一</description></item><item><title>Spring Cloud Ribbon 详解</title><link>https://atbug.com/spring-cloud-ribbon-breakdown-1/</link><pubDate>Sat, 05 May 2018 11:18:05 +0000</pubDate><guid>https://atbug.com/spring-cloud-ribbon-breakdown-1/</guid><description>&lt;p>客户端负载均衡, Ribbon的核心概念是命名的客户端.&lt;/p>
+&lt;h2 id="使用">使用&lt;/h2>
+&lt;h3 id="引入ribbon依赖和配置">引入Ribbon依赖和配置&lt;/h3>
+&lt;p>加入&lt;code>spring-cloud-starter-netflix-ribbon&lt;/code>依赖&lt;/p>
+&lt;h3 id="代码中使用ribbonclient注解">代码中使用RibbonClient注解&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-java" data-lang="java">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">@Configuration&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">@RibbonClient&lt;/span>&lt;span style="color:#f92672">(&lt;/span>name &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#34;foo&amp;#34;&lt;/span>&lt;span style="color:#f92672">,&lt;/span> configuration &lt;span style="color:#f92672">=&lt;/span> FooConfiguration&lt;span style="color:#f92672">.&lt;/span>&lt;span style="color:#a6e22e">class&lt;/span>&lt;span style="color:#f92672">)&lt;/span> &lt;span style="color:#66d9ef">public&lt;/span> &lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">TestConfiguration&lt;/span> &lt;span style="color:#f92672">{}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-java" data-lang="java">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">@Configuration&lt;/span> &lt;span style="color:#66d9ef">protected&lt;/span> &lt;span style="color:#66d9ef">static&lt;/span> &lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">FooConfiguration&lt;/span> &lt;span style="color:#f92672">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">@Bean&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">public&lt;/span> ZonePreferenceServerListFilter &lt;span style="color:#a6e22e">serverListFilter&lt;/span>&lt;span style="color:#f92672">()&lt;/span> &lt;span style="color:#f92672">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ZonePreferenceServerListFilter filter &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#66d9ef">new&lt;/span> ZonePreferenceServerListFilter&lt;span style="color:#f92672">();&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> filter&lt;span style="color:#f92672">.&lt;/span>&lt;span style="color:#a6e22e">setZone&lt;/span>&lt;span style="color:#f92672">(&lt;/span>&lt;span style="color:#e6db74">&amp;#34;myTestZone&amp;#34;&lt;/span>&lt;span style="color:#f92672">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> filter&lt;span style="color:#f92672">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">@Bean&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">public&lt;/span> IPing &lt;span style="color:#a6e22e">ribbonPing&lt;/span>&lt;span style="color:#f92672">()&lt;/span> &lt;span style="color:#f92672">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#66d9ef">new&lt;/span> PingUrl&lt;span style="color:#f92672">();&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Ribbon客户端的配置, 如果不指定会使用默认的实现:&lt;/p>
+&lt;ul>
+&lt;li>IClientConfig 客户端相关配置&lt;/li>
+&lt;li>IRule 定义负载均衡策略&lt;/li>
+&lt;li>IPing 定义如何ping目标服务实例来判断是否存活, ribbon使用单独的线程每隔一段时间(默认10s)对本地缓存的ServerList做一次检查&lt;/li>
+&lt;li>ServerList&lt;Server> 定义如何获取服务实例列表. 两种实现基于配置的&lt;code>ConfigurationBasedServerList&lt;/code>和基于Eureka服务发现的&lt;code>DiscoveryEnabledNIWSServerList&lt;/code>&lt;/li>
+&lt;li>ServerListFilter&lt;Server> 用来使用期望的特征过滤静态配置动态获得的候选服务实例列表. 若未提供, 默认使用&lt;code>ZoneAffinityServerListFilter&lt;/code>&lt;/li>
+&lt;li>ILoadBalancer 定义了软负载均衡器的操作的接口. 一个典型的负载均衡器至少需要一组用来做负载均衡的服务实例, 一个标记某个服务实例不在旋转中的方法, 和对应的方法调用从实例列表中选出某一个服务实例.&lt;/li>
+&lt;li>ServerListUpdater DynamicServerListLoadBalancer用来更新实例列表的策略(推&lt;code>EurekaNotificationServerListUpdater&lt;/code>/拉&lt;code>PollingServerListUpdater&lt;/code>, 默认是拉)&lt;/li>
+&lt;/ul></description></item><item><title>Spring Cloud Zuul详解</title><link>https://atbug.com/spring-cloud-zuul-breakdown/</link><pubDate>Thu, 22 Feb 2018 17:02:26 +0000</pubDate><guid>https://atbug.com/spring-cloud-zuul-breakdown/</guid><description>&lt;p>Spring Cloud对Netflix Zuul做了封装集成, 使得在Spring Cloud环境中使用Zuul更方便. Netflix Zuul相关分析请看&lt;a href="http://atbug.com/learn-netflix-zuul/">上一篇&lt;/a>.&lt;/p>
+&lt;h2 id="实现">实现&lt;/h2>
+&lt;p>@EnableZuulProxy 与 @EnableZuulServer
+二者的区别在于前者使用了服务发现作为路由寻址, 并使用Ribbon做客户端的负载均衡; 后者没有使用.
+Zuul server的路由都通过&lt;code>ZuulProperties&lt;/code>进行配置.&lt;/p>
+&lt;h3 id="具体实现">具体实现:&lt;/h3>
+&lt;ol>
+&lt;li>使用&lt;code>ZuulController&lt;/code>(&lt;code>ServletWrappingController&lt;/code>的子类)封装&lt;code>ZuulServlet&lt;/code>实例, 处理从&lt;code>DispatcherServlet&lt;/code>进来的请求.&lt;/li>
+&lt;li>&lt;code>ZuulHandlerMapping&lt;/code>负责注册handler mapping, 将&lt;code>Route&lt;/code>的&lt;code>fullPath&lt;/code>的请求交由&lt;code>ZuulController&lt;/code>处理.&lt;/li>
+&lt;li>同时使用&lt;code>ServletRegistrationBean&lt;/code>注册&lt;code>ZuulServlet&lt;/code>, 默认使用&lt;code>/zuul&lt;/code>作为urlMapping. 所有来自以&lt;code>/zuul&lt;/code>开头的path的请求都会直接进入&lt;code>ZuulServlet&lt;/code>, 不会进入&lt;code>DispatcherServlet&lt;/code>.&lt;/li>
+&lt;/ol>
+&lt;h4 id="使用注解">使用注解&lt;/h4>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;code>@EnableZuulProxy&lt;/code>引入了&lt;code>ZuulProxyMarkerConfiguration&lt;/code>, &lt;code>ZuulProxyMarkerConfiguration&lt;/code>只做了一件事, 实例化了内部类&lt;code>Marker&lt;/code>.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-java" data-lang="java">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">@Configuration&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">public&lt;/span> &lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">ZuulProxyMarkerConfiguration&lt;/span> &lt;span style="color:#f92672">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">@Bean&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">public&lt;/span> Marker &lt;span style="color:#a6e22e">zuulProxyMarkerBean&lt;/span>&lt;span style="color:#f92672">()&lt;/span> &lt;span style="color:#f92672">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#66d9ef">new&lt;/span> Marker&lt;span style="color:#f92672">();&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">Marker&lt;/span> &lt;span style="color:#f92672">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>
+&lt;p>&lt;code>@EnableZuulServer&lt;/code>引入了&lt;code>ZuulServerMarkerConfiguration&lt;/code>, &lt;code>ZuulServerMarkerConfiguration&lt;/code>也只做了一件事: 实例化了内部类&lt;code>Marker&lt;/code>&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-java" data-lang="java">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">@Configuration&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">public&lt;/span> &lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">ZuulServerMarkerConfiguration&lt;/span> &lt;span style="color:#f92672">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">@Bean&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">public&lt;/span> Marker &lt;span style="color:#a6e22e">zuulServerMarkerBean&lt;/span>&lt;span style="color:#f92672">()&lt;/span> &lt;span style="color:#f92672">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#66d9ef">new&lt;/span> Marker&lt;span style="color:#f92672">();&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">Marker&lt;/span> &lt;span style="color:#f92672">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;/ul></description></item><item><title>Spring Cloud - Eureka服务注册</title><link>https://atbug.com/spring-cloud-service-registry-via-eureka/</link><pubDate>Wed, 14 Feb 2018 07:32:43 +0000</pubDate><guid>https://atbug.com/spring-cloud-service-registry-via-eureka/</guid><description>&lt;p>之前分析过&lt;a href="http://atbug.com/spring-cloud-eureka-client-source-code-analysis/">Spring Cloud的Eureka服务发现&lt;/a>, 今天分析一下服务注册.&lt;/p>
+&lt;h2 id="配置">配置&lt;/h2>
+&lt;h3 id="bootstrapconfiguration">BootstrapConfiguration&lt;/h3>
+&lt;h4 id="eurekadiscoveryclientconfigservicebootstrapconfiguration">EurekaDiscoveryClientConfigServiceBootstrapConfiguration&lt;/h4>
+&lt;p>spring-cloud-config环境中使用的配置&lt;/p>
+&lt;p>引入&lt;code>EurekaDiscoveryClientConfiguration&lt;/code>和&lt;code>EurekaClientAutoConfiguration&lt;/code>&lt;/p>
+&lt;h5 id="eurekadiscoveryclientconfiguration">EurekaDiscoveryClientConfiguration&lt;/h5>
+&lt;ol>
+&lt;li>在spring-cloud中(通过是否存在RefreshScopeRefreshedEvent.class判断), 添加&lt;code>RefreshScopeRefreshedEvent&lt;/code>的listener. 收到事件后重新注册实例.&lt;/li>
+&lt;li>在&lt;code>eureka.client.healthcheck.enabled&lt;/code>设置为true时, 注册&lt;code>EurekaHealthCheckHandler&lt;/code>bean. &lt;code>EurekaHealthCheckHandler&lt;/code>负责将应用状态映射为实例状态&lt;code>InstanceStatus&lt;/code>.&lt;/li>
+&lt;/ol>
+&lt;h5 id="eurekaclientautoconfiguration">EurekaClientAutoConfiguration&lt;/h5>
+&lt;p>支持spring-cloud和非spring-cloud环境, 在spring-cloud环境中, 下面两个bean要使用&lt;code>@RefreshScope&lt;/code>标注&lt;/p>
+&lt;ol>
+&lt;li>实例化&lt;code>EurekaClient&lt;/code>bean, 在spring-cloud中使用实现类&lt;code>CloudEurekaClient&lt;/code>.&lt;/li>
+&lt;li>使用&lt;code>EurekaInstanceConfig&lt;/code>实例, 实例化&lt;code>ApplicationInfoManager&lt;/code>bean&lt;/li>
+&lt;/ol></description></item><item><title>Spring Cloud - Eureka Client源码分析</title><link>https://atbug.com/spring-cloud-eureka-client-source-code-analysis/</link><pubDate>Sat, 14 Oct 2017 22:04:59 +0000</pubDate><guid>https://atbug.com/spring-cloud-eureka-client-source-code-analysis/</guid><description>准备做个Spring Cloud源码分析系列, 作为Spring Cloud的源码分析</description></item></channel></rss>

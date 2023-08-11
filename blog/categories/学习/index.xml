@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>学习 on 乱世浮生</title><link>https://atbug.com/categories/%E5%AD%A6%E4%B9%A0/</link><description>Recent content in 学习 on 乱世浮生</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Mon, 01 Jan 2018 12:30:31 +0000</lastBuildDate><atom:link href="https://atbug.com/categories/%E5%AD%A6%E4%B9%A0/index.xml" rel="self" type="application/rss+xml"/><item><title>Go In Action 读书笔记 三</title><link>https://atbug.com/go-in-action-three/</link><pubDate>Mon, 01 Jan 2018 12:30:31 +0000</pubDate><guid>https://atbug.com/go-in-action-three/</guid><description>&lt;h2 id="并发">并发&lt;/h2>
+&lt;p>Go语言里的并发是指让某个函数可以独立于其他函数运行的能力. 当一个函数创建为goroutine时, Go会将其视为一个独立的工作单元. 这个工作单元会被调度到可用的&lt;strong>逻辑处理器&lt;/strong>上执行.&lt;/p>
+&lt;p>Go的运行时调度器可以管理所有创建的goroutine, 并为其分配执行时间.
+这个调度器在操作系统之上, 将操作系统的线程与逻辑处理器绑定, 并在逻辑处理器执行goroutine. &lt;strong>调度器可以在任何给定的时间, 全面控制哪个goroutine在哪个逻辑处理器上运行&lt;/strong>.&lt;/p>
+&lt;p>Go的并发同步模型来自一个叫做通信顺序进程(Communicating Sequential Processes, &lt;a href="http://www.usingcsp.com">CSP&lt;/a>). CSP是一个消息传递模型, 通过在goroutine之前传递数据来传递消息, 不需要通过加锁实现同步访问. 用于在goroutine间传递消息的数据结构叫做通道(channel).&lt;/p>
+&lt;h3 id="并发与并行">并发与并行&lt;/h3>
+&lt;p>操作系统的线程(thread)和进程(process).&lt;/p>
+&lt;p>进程类似应用程序在运行中需要用到和维护的各种资源的容器.
+资源包括但不限于: 内存(来自文件系统的代码和数据), 句柄(文件, 设备, 操作系统), 线程.&lt;/p></description></item></channel></rss>
